@@ -30,6 +30,6 @@ Vagrant.configure("2") do |config|
     SHELL
 
     #install_jenkinshost.sh : This is the script that will take care of the installation of Java, Jenkins server and some utilities
-    config.vm.provision "shell", path: "install_packages.sh"
+   kubernetes.vm.provision "shell", path: "install_packages.sh"
   end
 end
