@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 # @Autor : Kenneth Dzonyrah
-# Description : Vagrant file for provisionning Kubernetes
+# Description : Vagrant file for provisionning openstack
 # Date : 03/22/2022
 #
 
@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
     kubernetes.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--memory", 2048]
       v.customize ["modifyvm", :id, "--name", "kubernetes"]
-      v.customize ["modifyvm", :id, "--cpus", "2"]
+      v.customize ["modifyvm", :id, "--cpus", "4"]
     end
 
     #change the value of the SSH configuration file, then restart the ssh service
@@ -30,6 +30,6 @@ Vagrant.configure("2") do |config|
     SHELL
 
     #install_jenkinshost.sh : This is the script that will take care of the installation of Java, Jenkins server and some utilities
-  install-open-stack.shinstall-open-stack.shinstall-open-stack.shinstall-open-stack.shinstall-open-stack.shinstall-open-stack.shinstall-open-stack.sh  config.vm.provision "shell", path: "install-open-stack.sh"
+    config.vm.provision "shell", path: "install_packages.sh"
   end
 end
